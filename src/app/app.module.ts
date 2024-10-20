@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import { ContainsPipe } from './contains.pipe';
 import {HighlightDirective} from "./directives/highlight.directive";
 import { AppRoutingModule } from './app-routing.module';
+import { ProductCategoriesComponent } from './product-categories/product-categories.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     ListCategoriesComponent,
     ContainsPipe,
-    HighlightDirective  // Declare the directive here
+    HighlightDirective,
+    ProductCategoriesComponent  // Declare the directive here
 
   ],
   imports: [

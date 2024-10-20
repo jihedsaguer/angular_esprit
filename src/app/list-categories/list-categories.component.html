@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <!-- Search bar -->
+  <input [(ngModel)]="title" placeholder="Search by title" class="form-control mb-3" />
+
+  <!-- Display filtered categories as cards -->
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let category of Categorie | contains:title">
+      <div class="card">
+        <!-- Category image -->
+        <img [src]="category.image"
+             (click)="showCategoryDetails(category.id)"
+
+             alt="{{ category.title }}"
+             class="card-img-top"
+             appHighlight />
+
+        <!-- Card content -->
+        <div class="card-body">
+          <!-- Category title in uppercase -->
+          <h5 class="card-title text-uppercase">{{ category.title }}</h5>
+
+          <!-- Category description -->
+          <p class="card-text">{{ category.description }}</p>
+
+
+          <!-- See More button or unavailable message -->
+          <div *ngIf="category.available">
+
+            <button    (click)="showDescription(category.description)" class="btn btn-primary" appHighlight>See More</button>
+          </div>
+
+          <div *ngIf="!category.available">
+            <p class="text-muted">Catégorie non disponible</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
